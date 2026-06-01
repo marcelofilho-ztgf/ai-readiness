@@ -14,6 +14,10 @@ if (fs.existsSync(clientDist)) {
 
 const AI_BOTS = ["GPTBot", "ChatGPT-User", "OAI-SearchBot", "PerplexityBot", "Google-Extended", "ClaudeBot", "Claude-Web", "Amazonbot"];
 
+// Health check leve — usado por monitores (UptimeRobot) para manter o serviço acordado.
+// Não roda análise; só confirma que o servidor está de pé.
+app.get("/health", (req, res) => res.status(200).json({ status: "ok", uptime: process.uptime() }));
+
 function fetchWithTimeout(url, opts = {}, ms = 12000) {
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), ms);
