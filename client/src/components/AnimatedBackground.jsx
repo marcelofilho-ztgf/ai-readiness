@@ -9,7 +9,16 @@ export default function AnimatedBackground() {
   return (
     <div
       aria-hidden
-      style={{ position: "fixed", inset: 0, zIndex: -1, overflow: "hidden", background: "var(--bg)" }}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: -1,
+        overflow: "hidden",
+        background: "var(--bg)",
+      }}
     >
       <Suspense fallback={null}>
         <Silk speed={5} scale={1} color="#3a2d6b" noiseIntensity={1.4} rotation={0} />
