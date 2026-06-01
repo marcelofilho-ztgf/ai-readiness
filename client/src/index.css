@@ -21,9 +21,57 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+}
+/* Fundo seda aplicado direto no body — à prova de z-index.
+   Camadas animadas via ::before / ::after por cima deste gradiente base. */
+body {
+  min-height: 100vh;
+  background:
+    repeating-linear-gradient(
+      115deg,
+      #2b2150 0px,
+      #4a3a8c 60px,
+      #6c5ce7 120px,
+      #3d2f73 180px,
+      #1c1733 250px
+    ),
+    #14101f;
+  background-attachment: fixed;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    65deg,
+    transparent 0px,
+    rgba(0, 216, 160, 0.16) 70px,
+    rgba(108, 92, 231, 0.26) 150px,
+    transparent 240px
+  );
+  mix-blend-mode: screen;
+  filter: blur(16px);
+  animation: silkShiftB 26s ease-in-out infinite alternate;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    130% 90% at 50% 8%,
+    rgba(10, 10, 15, 0),
+    rgba(10, 10, 15, 0.5) 85%
+  );
+}
+#root {
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes spin {
