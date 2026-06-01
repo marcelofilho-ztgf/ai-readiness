@@ -81,7 +81,7 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 40px 20px;
+  padding: 16px 12px;
   overflow-y: auto;
   background: rgba(8, 8, 14, 0.6);
   backdrop-filter: blur(6px);

@@ -44,27 +44,27 @@ export default function App() {
     <>
       <AnimatedBackground />
 
-      <div className="flex min-h-screen w-full items-center justify-center px-6 py-12">
+      <div className="flex min-h-screen w-full items-center justify-center px-4 py-6 sm:px-6 sm:py-12">
         {/* CARD EXTERNO envolvendo todo o conteúdo — centrado na tela */}
-        <div className="glass-shell flex w-full max-w-[780px] flex-col items-center rounded-[28px] px-8 py-12 sm:px-12">
+        <div className="glass-shell flex w-full max-w-[780px] flex-col items-center rounded-[24px] px-5 py-8 sm:rounded-[28px] sm:px-12 sm:py-12">
           <header className="flex flex-col items-center text-center">
-            <h1 className="text-[32px] font-bold tracking-tight text-white">
+            <h1 className="text-[26px] font-bold leading-tight tracking-tight text-white sm:text-[32px] sm:leading-tight">
               Seu site está pronto para ser{" "}
               <span style={{ color: "var(--accent-2)" }}>citado por IA</span>?
             </h1>
-            <p className="mx-auto mt-3 max-w-[620px] text-base text-muted">
+            <p className="mx-auto mt-2.5 max-w-[620px] text-[13px] leading-snug text-muted sm:mt-3 sm:text-base sm:leading-normal">
               Compradores B2B não pesquisam mais só no Google. Eles perguntam ao ChatGPT,
               Perplexity e Gemini "qual empresa contratar para X". Cole sua URL e veja se seu
               site tem os fundamentos técnicos para ser lido e entendido por IA.
             </p>
-            <p className="glass-soft mx-auto mt-5 max-w-[560px] rounded-xl px-4 py-2.5 text-[13px] text-muted">
+            <p className="glass-soft mx-auto mt-3 max-w-[560px] rounded-xl px-3.5 py-2 text-[12px] leading-snug text-muted sm:mt-5 sm:px-4 sm:py-2.5 sm:text-[13px]">
               Mede os <b className="font-bold text-textc">pré-requisitos técnicos</b> de GEO/AEO
               (se a IA consegue ler e entender seu site) — não se a IA já te cita. Isso se mede
               testando perguntas direto no ChatGPT/Perplexity.
             </p>
           </header>
 
-          <SearchForm onSubmit={analyze} loading={loading} className="mt-8 w-full" />
+          <SearchForm onSubmit={analyze} loading={loading} className="mt-5 w-full sm:mt-8" />
 
           <div
             className="mt-4 min-h-[20px] w-full text-center text-sm"

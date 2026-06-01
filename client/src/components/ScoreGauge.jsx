@@ -26,8 +26,8 @@ export default function ScoreGauge({ score }) {
   const color = colorForScore(score);
 
   return (
-    <div className="relative h-[132px] w-[132px] flex-shrink-0">
-      <svg width="132" height="132" viewBox="0 0 132 132" className="-rotate-90">
+    <div className="relative h-[96px] w-[96px] flex-shrink-0 sm:h-[132px] sm:w-[132px]">
+      <svg viewBox="0 0 132 132" className="h-full w-full -rotate-90">
         <circle cx="66" cy="66" r="58" fill="none" stroke="var(--panel-2)" strokeWidth="12" />
         <circle
           cx="66"
@@ -43,8 +43,8 @@ export default function ScoreGauge({ score }) {
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <b className="text-[38px] font-bold leading-none">{cur}</b>
-        <span className="text-xs text-muted">/ 100</span>
+        <b className="text-[28px] font-bold leading-none sm:text-[38px]">{cur}</b>
+        <span className="text-[10px] text-muted sm:text-xs">/ 100</span>
       </div>
     </div>
   );

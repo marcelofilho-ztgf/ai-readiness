@@ -23,7 +23,7 @@ export default function ResultModal({
 
   return (
     <div className="modal-overlay" onClick={onOverlayClick}>
-      <div className="modal-card glass-shell rounded-[24px] p-6 sm:p-8">
+      <div className="modal-card glass-shell rounded-[20px] p-4 sm:rounded-[24px] sm:p-8">
         {/* TOPO: URL pesquisada + nova busca + fechar */}
         <div className="mb-6 flex flex-col gap-4">
           <div className="flex items-start justify-between gap-4">
@@ -83,11 +83,15 @@ export default function ResultModal({
         )}
 
         {/* SCORE */}
-        <div className="flex items-center gap-7 rounded-[18px] border border-white/10 bg-black/20 p-6">
+        <div className="flex items-center gap-4 rounded-[18px] border border-white/10 bg-black/20 p-4 sm:gap-7 sm:p-6">
           <ScoreGauge score={data.score} />
-          <div>
-            <h2 className="text-[22px] font-bold text-white">{data.grade.label}</h2>
-            <p className="mt-2 max-w-[380px] text-sm text-white/70">{blurbs[data.grade.tone]}</p>
+          <div className="min-w-0">
+            <h2 className="text-[18px] font-bold leading-tight text-white sm:text-[22px]">
+              {data.grade.label}
+            </h2>
+            <p className="mt-1.5 max-w-[380px] text-[13px] leading-snug text-white/70 sm:mt-2 sm:text-sm sm:leading-normal">
+              {blurbs[data.grade.tone]}
+            </p>
           </div>
         </div>
 
