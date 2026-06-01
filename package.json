@@ -1,0 +1,19 @@
+{
+  "name": "ai-readiness",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "client": "npm --prefix client run dev",
+    "build": "npm --prefix client install && npm --prefix client run build",
+    "dev": "echo \"Rode em 2 terminais: 'npm start' (API :3000) e 'npm run client' (front :5173)\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "express": "^5.2.1"
+  }
+}
