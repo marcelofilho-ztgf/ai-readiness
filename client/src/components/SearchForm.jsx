@@ -1,27 +1,33 @@
 import { useState } from "react";
 
 // Formulário de busca reutilizável (home e modal).
-// Input com fundo branco; botão na cor accent-2 (verde "citado por IA").
+// Vazio/sem foco: liquid glass. Ao focar/digitar: fica branco.
+// Botão sempre na cor accent-2 (verde "citado por IA").
 export default function SearchForm({ onSubmit, loading, className = "", compact = false, initialValue = "" }) {
   const [url, setUrl] = useState(initialValue);
+  const [focused, setFocused] = useState(false);
 
   function handle(e) {
     e.preventDefault();
     onSubmit(url);
   }
 
+  const active = focused || url.length > 0;
+
   return (
     <form
       onSubmit={handle}
-      className={`input-white mx-auto flex max-w-[680px] items-center gap-2 rounded-2xl p-2 ${className}`}
+      className={`mx-auto flex max-w-[680px] items-center gap-2 rounded-2xl p-2 transition-colors ${active ? "input-white" : "glass"} ${className}`}
     >
       <input
         value={url}
         onChange={(e) => setUrl(e.target.value)}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
         type="text"
         placeholder="cole a URL do seu site, ex: zigpay.com.br"
         autoComplete="off"
-        className={`input-white flex-1 rounded-xl bg-transparent px-3.5 outline-none ${compact ? "py-2 text-sm" : "py-3 text-base"}`}
+        className={`flex-1 rounded-xl bg-transparent px-3.5 outline-none ${active ? "text-[#14101f] placeholder:text-[#6a7280]" : "text-textc placeholder:text-muted"} ${compact ? "py-2 text-sm" : "py-3 text-base"}`}
       />
       <button
         type="submit"

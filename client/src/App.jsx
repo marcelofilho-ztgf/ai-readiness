@@ -44,30 +44,30 @@ export default function App() {
     <>
       <AnimatedBackground />
 
-      <div className="flex min-h-screen w-full flex-col items-center justify-center px-6 py-12">
-        {/* CARD EXTERNO envolvendo todo o conteúdo */}
-        <div className="glass-shell w-full max-w-[780px] rounded-[28px] px-8 py-12 sm:px-12">
-          <header className="text-center">
+      <div className="flex min-h-screen w-full items-center justify-center px-6 py-12">
+        {/* CARD EXTERNO envolvendo todo o conteúdo — centrado na tela */}
+        <div className="glass-shell flex w-full max-w-[780px] flex-col items-center rounded-[28px] px-8 py-12 sm:px-12">
+          <header className="flex flex-col items-center text-center">
             <h1 className="text-[32px] font-bold tracking-tight text-white">
               Seu site está pronto para ser{" "}
               <span style={{ color: "var(--accent-2)" }}>citado por IA</span>?
             </h1>
-            <p className="mx-auto mt-3 max-w-[620px] text-base text-white">
+            <p className="mx-auto mt-3 max-w-[620px] text-base text-muted">
               Compradores B2B não pesquisam mais só no Google. Eles perguntam ao ChatGPT,
               Perplexity e Gemini "qual empresa contratar para X". Cole sua URL e veja se seu
               site tem os fundamentos técnicos para ser lido e entendido por IA.
             </p>
-            <p className="glass-soft mx-auto mt-5 max-w-[560px] rounded-xl px-4 py-2.5 text-[13px] text-white">
-              Mede os <b className="font-bold text-white">pré-requisitos técnicos</b> de GEO/AEO
+            <p className="glass-soft mx-auto mt-5 max-w-[560px] rounded-xl px-4 py-2.5 text-[13px] text-muted">
+              Mede os <b className="font-bold text-textc">pré-requisitos técnicos</b> de GEO/AEO
               (se a IA consegue ler e entender seu site) — não se a IA já te cita. Isso se mede
               testando perguntas direto no ChatGPT/Perplexity.
             </p>
           </header>
 
-          <SearchForm onSubmit={analyze} loading={loading} className="mt-8" />
+          <SearchForm onSubmit={analyze} loading={loading} className="mt-8 w-full" />
 
           <div
-            className="mt-4 min-h-[20px] text-center text-sm"
+            className="mt-4 min-h-[20px] w-full text-center text-sm"
             style={{ color: error ? "var(--alta)" : "rgba(255,255,255,.7)" }}
           >
             {loading && (

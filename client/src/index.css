@@ -24,55 +24,79 @@ body {
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
 }
-/* Fundo seda aplicado direto no body — dobras suaves e difusas (não listras).
-   Várias manchas de luz sobrepostas, bem desfocadas, que derivam lentamente. */
+/* Fundo seda animado — em DIVs reais (anima de forma confiável no Chrome). */
 body {
   min-height: 100vh;
-  background: #1a1430;
+  background: #14101f;
   overflow-x: hidden;
-}
-/* Camada de "dobras de seda": manchas radiais largas e suaves que se movem */
-body::before {
-  content: "";
-  position: fixed;
-  inset: -25%;
-  width: 150%;
-  height: 150%;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(60% 120% at 20% 30%, rgba(124, 108, 255, 0.55), transparent 60%),
-    radial-gradient(55% 100% at 75% 25%, rgba(60, 45, 120, 0.6), transparent 55%),
-    radial-gradient(70% 130% at 60% 80%, rgba(0, 200, 160, 0.18), transparent 60%),
-    radial-gradient(50% 90% at 35% 70%, rgba(108, 92, 231, 0.45), transparent 55%),
-    linear-gradient(125deg, #221a44 0%, #3a2d6b 35%, #2a2052 60%, #181230 100%);
-  filter: blur(60px) saturate(125%);
-  animation: silkDrift 26s ease-in-out infinite alternate;
-}
-/* Brilho diagonal que atravessa, dando o aspecto acetinado */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.05) 48%, transparent 62%),
-    radial-gradient(130% 95% at 50% 6%, rgba(12, 10, 22, 0), rgba(12, 10, 22, 0.45) 90%);
 }
 #root {
   position: relative;
   z-index: 1;
 }
+.silk-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(125deg, #221a44 0%, #3a2d6b 40%, #2a2052 65%, #181230 100%);
+}
+/* manchas de luz que derivam — o movimento principal */
+.silk-blob {
+  position: absolute;
+  inset: -30%;
+  width: 160%;
+  height: 160%;
+  background:
+    radial-gradient(60% 120% at 20% 30%, rgba(124, 108, 255, 0.6), transparent 60%),
+    radial-gradient(55% 100% at 78% 22%, rgba(70, 50, 140, 0.65), transparent 55%),
+    radial-gradient(70% 130% at 62% 82%, rgba(0, 200, 160, 0.22), transparent 60%),
+    radial-gradient(50% 90% at 32% 72%, rgba(108, 92, 231, 0.5), transparent 55%);
+  filter: blur(55px) saturate(125%);
+  will-change: transform;
+  transform: translateZ(0);
+  animation: silkDrift 24s ease-in-out infinite alternate;
+}
+/* brilho acetinado diagonal, movendo no sentido oposto */
+.silk-sheen {
+  position: absolute;
+  inset: -20%;
+  width: 140%;
+  height: 140%;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.07) 48%,
+    transparent 64%
+  );
+  filter: blur(8px);
+  will-change: transform;
+  transform: translateZ(0);
+  animation: sheenMove 18s ease-in-out infinite alternate;
+}
+.silk-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(130% 95% at 50% 6%, rgba(12, 10, 22, 0), rgba(12, 10, 22, 0.5) 90%);
+}
 @keyframes silkDrift {
   0% {
-    transform: translate(-4%, -2%) rotate(-4deg) scale(1.1);
+    transform: translate3d(-5%, -3%, 0) rotate(-5deg) scale(1.1);
   }
   50% {
-    transform: translate(5%, 4%) rotate(5deg) scale(1.22);
+    transform: translate3d(6%, 4%, 0) rotate(5deg) scale(1.25);
   }
   100% {
-    transform: translate(-3%, 3%) rotate(-2deg) scale(1.14);
+    transform: translate3d(-3%, 4%, 0) rotate(-2deg) scale(1.15);
+  }
+}
+@keyframes sheenMove {
+  0% {
+    transform: translate3d(-12%, 0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(12%, 6%, 0) rotate(4deg);
   }
 }
 
