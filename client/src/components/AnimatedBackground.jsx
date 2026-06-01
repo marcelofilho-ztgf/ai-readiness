@@ -28,7 +28,7 @@ export default function AnimatedBackground() {
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(120% 80% at 50% 0%, rgba(10,10,15,.15), rgba(10,10,15,.72) 75%)",
+            "radial-gradient(130% 90% at 50% 10%, rgba(10,10,15,0), rgba(10,10,15,.55) 85%)",
         }}
       />
     </div>

@@ -42,26 +42,26 @@ body {
 .silk-a {
   background: repeating-linear-gradient(
     115deg,
-    #1a1530 0px,
-    #2d2356 60px,
-    #3a2d6b 110px,
-    #241b44 170px,
-    #15102a 230px
+    #2b2150 0px,
+    #4a3a8c 55px,
+    #6c5ce7 110px,
+    #3d2f73 165px,
+    #241b44 230px
   );
-  filter: blur(8px) contrast(1.05);
-  opacity: 0.9;
+  filter: blur(10px) contrast(1.1);
+  opacity: 1;
   animation: silkShiftA 22s ease-in-out infinite alternate;
 }
 .silk-b {
   background: repeating-linear-gradient(
     65deg,
     transparent 0px,
-    rgba(0, 216, 160, 0.06) 80px,
-    rgba(108, 92, 231, 0.12) 150px,
+    rgba(0, 216, 160, 0.18) 70px,
+    rgba(108, 92, 231, 0.28) 150px,
     transparent 240px
   );
   mix-blend-mode: screen;
-  filter: blur(14px);
+  filter: blur(16px);
   animation: silkShiftB 28s ease-in-out infinite alternate;
 }
 .silk-grain {
