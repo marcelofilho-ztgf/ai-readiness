@@ -1,10 +1,6 @@
-// Background animado — usa o componente Silk (React Bits) em fullscreen fixo.
-// O Silk (Three.js) é carregado sob demanda (lazy) para a página inicial abrir
-// rápido; o background aparece assim que o chunk pesado termina de baixar.
-import { lazy, Suspense } from "react";
-
-const Silk = lazy(() => import("./Silk.jsx"));
-
+// Background "seda" em CSS puro — recria o clima do Silk (React Bits) sem WebGL/Three.js.
+// Camadas de gradientes cônicos/radiais animados que se movem lentamente,
+// imitando dobras de tecido. Funciona em qualquer navegador e é leve.
 export default function AnimatedBackground() {
   return (
     <div
@@ -17,19 +13,22 @@ export default function AnimatedBackground() {
         height: "100vh",
         zIndex: -1,
         overflow: "hidden",
-        background: "var(--bg)",
+        background: "#0a0a0f",
       }}
     >
-      <Suspense fallback={null}>
-        <Silk speed={5} scale={1} color="#3a2d6b" noiseIntensity={1.4} rotation={0} />
-      </Suspense>
-      {/* overlay pra escurecer e dar contraste ao texto/glass */}
+      {/* camada base: dobras de seda em roxo */}
+      <div className="silk-layer silk-a" />
+      {/* camada secundária: brilho verde sutil, sentido oposto */}
+      <div className="silk-layer silk-b" />
+      {/* granulado sutil pra textura de tecido */}
+      <div className="silk-grain" />
+      {/* overlay pra escurecer e dar contraste */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(120% 80% at 50% 0%, rgba(10,10,15,.25), rgba(10,10,15,.78) 70%)",
+            "radial-gradient(120% 80% at 50% 0%, rgba(10,10,15,.15), rgba(10,10,15,.72) 75%)",
         }}
       />
     </div>
