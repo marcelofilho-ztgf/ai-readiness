@@ -28,16 +28,16 @@ export default function CategoryCard({ name, desc, score, max, pct }) {
     <div
       ref={ref}
       onMouseMove={onMove}
-      className="glass group relative overflow-hidden rounded-xl px-[18px] py-4 transition-colors hover:border-accent/60"
+      className="group relative overflow-hidden rounded-xl border border-white/10 px-[18px] py-4 transition-colors hover:border-white/25"
       style={{
         background:
-          "radial-gradient(420px circle at var(--mx, -100px) var(--my, -100px), rgba(108,92,231,.18), transparent 40%), rgba(20,20,28,.45)",
+          "radial-gradient(420px circle at var(--mx, -100px) var(--my, -100px), rgba(108,92,231,.22), transparent 40%), rgba(0,0,0,.22)",
       }}
     >
       <div className="flex items-baseline justify-between gap-3">
         <div>
-          <span className="text-[15px] font-semibold">{name}</span>{" "}
-          <span className="text-[13px] font-normal text-muted">{desc}</span>
+          <span className="text-[15px] font-semibold text-white">{name}</span>{" "}
+          <span className="text-[13px] font-normal text-white/55">{desc}</span>
         </div>
         <div
           className="text-[15px] font-bold tabular-nums"
