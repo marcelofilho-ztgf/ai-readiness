@@ -17,7 +17,7 @@ export default function SearchForm({ onSubmit, loading, className = "", compact 
   return (
     <form
       onSubmit={handle}
-      className={`mx-auto flex max-w-[680px] items-center gap-2 rounded-2xl p-2 transition-colors ${active ? "input-white" : "glass"} ${className}`}
+      className={`mx-auto flex w-full max-w-[680px] items-center gap-2 rounded-2xl p-2 transition-colors ${active ? "input-white" : "glass"} ${className}`}
     >
       <input
         value={url}
@@ -27,7 +27,7 @@ export default function SearchForm({ onSubmit, loading, className = "", compact 
         type="text"
         placeholder="cole a URL do seu site, ex: zigpay.com.br"
         autoComplete="off"
-        className={`flex-1 rounded-xl bg-transparent px-3.5 outline-none ${active ? "text-[#14101f] placeholder:text-[#6a7280]" : "text-textc placeholder:text-muted"} ${compact ? "py-2 text-sm" : "py-3 text-base"}`}
+        className={`min-w-0 flex-1 rounded-xl bg-transparent px-3.5 outline-none ${active ? "text-[#14101f] placeholder:text-[#6a7280]" : "text-textc placeholder:text-muted"} ${compact ? "py-2.5 text-[15px]" : "py-3 text-base"}`}
       />
       <button
         type="submit"
