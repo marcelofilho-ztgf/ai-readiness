@@ -25,7 +25,7 @@ export default function SearchForm({ onSubmit, loading, className = "", compact 
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         type="text"
-        placeholder="cole a URL do seu site, ex: zigpay.com.br"
+        placeholder="cole a URL do seu site, ex: zig.com.br"
         autoComplete="off"
         className={`min-w-0 flex-1 rounded-xl bg-transparent px-3.5 outline-none ${active ? "text-[#14101f] placeholder:text-[#6a7280]" : "text-textc placeholder:text-muted"} ${compact ? "py-2.5 text-[15px]" : "py-3 text-base"}`}
       />
